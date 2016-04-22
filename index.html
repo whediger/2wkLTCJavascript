@@ -5,16 +5,60 @@
     <meta charset="UTF-8">
     <title>Rock, Paper, Scissors</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script>
-      // Task 1: user's choice
-      // Task 2: machine's choice
-      // Task 3: compare choices
-      // Task 4: refactor code
-      // Task 5: add all code here 
-    </script>
   </head>
-
   <body>
+    <h1>Please choose: rock, paper or scissors</h1>
+    <button type="button" name="paper" id="paper">Paper</button>
+    <button type="button" name="scissors" id="scissors">Scissors</button>
+    <button type="button" name="rock" id="rock">Rock</button>
+
+    <script>
+      var userChoice;
+      var pCChoice = computerChoice();
+
+      function computerChoice() {
+        var choice = Math.random();
+        if (choice <= .33) {
+          return "rock";
+        } else if (choice <= .66 && choice > .33) {
+          return "paper";
+        } else {
+          return "scissors";
+        }
+      }
+
+      function getWinner(pCChoice, userChoice) {
+        if (pCChoice === userChoice) {
+          return "Draw";
+        } else if (pCChoice == "paper" && userChoice == "scissors") {
+          return "Computer wins!";
+        } else if (pCChoice == "scissors" && userChoice == "paper") {
+          return "User wins!";
+        } else if (pCChoice == "rock" && userChoice == "paper") {
+          return "Computer wins!";
+        } else if (pCChoice == "paper" && userChoice == "rock") {
+          return "User wins!";
+        } else if (pCChoice == "scissors" && userChoice == "rock") {
+          return "User wins!";
+        } else if (pCChoice == "rock" && userChoice == "scissors") {
+          return "Computer wins!";
+        }
+      }
+
+      document.getElementById("rock").addEventListener('click', function(){
+        console.log(getWinner(pCChoice, "rock"));
+
+      });
+      document.getElementById("paper").addEventListener('click', function(){
+        userChoice = "paper";
+        console.log(getWinner(pCChoice, "paper"));
+      });
+      document.getElementById("scissors").addEventListener('click', function(){
+        userChoice = "scissors";
+        console.log(getWinner(pCChoice, "scissors"));
+      });
+
+    </script>
   </body>
 
 </html>

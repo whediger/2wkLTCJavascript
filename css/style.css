@@ -2,17 +2,18 @@
     text-align: center;
 }
 
-.button {
+button {
     position: relative;
     top: 50%;
     width: 200px;
     height: 100px;
     display: inline-block;
+    font-size: 2em;
 }
 
 
 html {
-  background: url("some_url_to_an_image") no-repeat center center fixed; 
+  background: url("some_url_to_an_image") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
